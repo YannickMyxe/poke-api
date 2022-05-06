@@ -5,8 +5,4 @@ import {randomize} from './modules/randomizer.js';
 import { getSprites, getSpritesAsImages } from './modules/getSprites.js';
 
 (async function() {
-
-    const inner = document.querySelector("#test-bar>div");
-    const val = 140;
-    inner.style.width = (val / 255) * 100 + "%";
 })();
