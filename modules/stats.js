@@ -3,7 +3,6 @@ import * as pokeFetch from "./pokeFetch.js";
 export const getStatsOfPokemon = async function(searchTerm) {
     const pokemon = await pokeFetch.getByName(searchTerm);
     const stats = pokemon.stats;
-    console.info(stats);
     return stats;
 };
 
