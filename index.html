@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokefetch</title>
+
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&family=Raleway&display=swap" rel="stylesheet"> 
+
+    <link rel="shortcut icon" href="#">
+
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/types.css">
+    <link rel="stylesheet" href="./styles/stats.css">
+    
+
+    <script type="module" defer src="./index.js"></script>
+    <script type="module" defer src="./forms.js"></script>
+</head>
+<body>
+    <h1>PokeFetch</h1>
+    <form class="prevent-default" >
+        <h2>Get pokemon</h2>
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name">
+        <button id="getPokemonFromName">Fetch results</button>
+        <div class="results" id="result"></div>
+    </form>
+</body>
+</html>

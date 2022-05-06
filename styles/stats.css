@@ -1,0 +1,43 @@
+:root {
+    --hp: #FF0000;
+    --attack: #F08030;
+    --defense: #F8D030;
+    --spAttack: #6890F0;
+    --spdefense: #78C850;
+    --speed: #F85888;
+}
+
+
+
+.bar {
+    height: 2rem;
+    width: 20rem;
+    background-color: #0c0c0c42;
+    display: flex;
+    align-items: center;
+}
+
+.inner-bar {
+    height: 2rem;
+}
+
+.hp {
+    background: var(--hp);
+}
+
+.attack {
+    background: var(--attack);
+}
+
+.defense{
+    background: var(--defense);
+}
+.special-attack{
+    background: var(--spAttack);
+}
+.special-defense{
+    background: var(--spdefense);
+}
+.speed{
+    background: var(--speed);
+}

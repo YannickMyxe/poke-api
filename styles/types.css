@@ -1,0 +1,90 @@
+
+:root { 
+    --bug     :#A8B820;
+    --electric:#F8D030;           
+    --dark    :#705848;
+    --dragon  :#7038F8;
+    --fairy   :#EE99AC;
+    --fighting:#C03028;
+    --fire    :#F08030;
+    --flying  :#A890F0;
+    --ghost   :#705898;
+    --grass   :#52ee65;
+    --ground  :#E0C068;
+    --ice     :#98D8D8;
+    --normal  :#A8A878;
+    --poison  :#A040A0;
+    --psychic :#F85888;
+    --rock    :#B8A038;
+    --steel   :#B8B8D0;
+    --water   :#5265ee;
+}
+.bug {
+    background-color: var(--bug);
+}
+.electric {
+    background: var(--electric);
+}
+.dark {
+    background: var(--dark);
+}
+.dragon {
+    background: var(--dragon);
+}
+.fairy {
+    background: var(--fairy);
+}
+.fighting {
+    background: var(--fighting);
+}
+.fire {
+    background-color: var(--fire);
+}
+.flying {
+    background: var(--flying);
+}
+.ghost {
+    background: var(--ghost);
+}
+.grass {
+    background-color: var(--grass);
+}
+.ground {
+    background: var(--ground);
+}
+.ice {
+    background: var(--ice);
+}
+.normal {
+    background: var(--normal);
+}
+.poison {
+    background: var(--poison);
+}
+.psychic {
+    background: var(--psychic);
+}
+.rock {
+    background: var(--rock);
+}
+.steel {
+    background: var(--steel);
+}
+.water {
+    background-color: var(--water);
+}
+
+.type-box {
+    display: flex;
+}
+
+.type {
+    padding: 1rem 0rem;
+    color: #efefef;
+    font-size: 4em;
+    text-align: center;
+    border: 2px solid #0e0e0e;
+    margin: 1rem 0rem;
+    max-width: 50%;
+    width: 80%;
+}
