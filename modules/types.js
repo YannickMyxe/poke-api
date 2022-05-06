@@ -2,8 +2,13 @@
 import * as pokeFetch from "./pokeFetch.js";
 
 export const getTypeRefrence = async function(searchTerm) {
-    const res = await pokeFetch.getTypeInfo(searchTerm);
-    return res.id;
+    try {
+        const res = await pokeFetch.getTypeInfo(searchTerm);
+        return res.id;
+    }
+    catch(err) {
+        console.error(`Cannot get refrence for [${searchTerm}] => ${err}`);
+    }
 };
 
 export const getTypesAsHtml = async function(searchTerm) {
