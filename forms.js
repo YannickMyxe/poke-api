@@ -27,7 +27,6 @@ import * as pokeStats from './modules/stats.js';
                 throw new Error(`The search-term cannot be empty, expecting a valid number / name`);
             }
             const pokemon   = await pokeFetch.getByName(name.value);
-            console.info(pokemon);
             const types     = await pokeTypes.getTypesAsHtml(name.value);
             const sprites   = await getSprites.getSpriteAsHtml(name.value);
             const art       = await getSprites.getOfficialArtAsImages(name.value);
