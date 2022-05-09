@@ -1,20 +1,9 @@
-import * as pokeFetch from './modules/pokeFetch.js';
-import * as getSprites from './modules/getSprites.js';
-import * as pokeTypes from './modules/types.js';
-import * as pokeStats from './modules/stats.js';
+import * as pokeFetch from '../modules/pokeFetch.js';
+import * as getSprites from '../modules/getSprites.js';
+import * as pokeTypes from '../modules/types.js';
+import * as pokeStats from '../modules/stats.js';
 
-(async function(){
-
-    const forms = document.querySelectorAll('.prevent-default');
-    forms.forEach((f) => {
-        f.addEventListener('submit', (e) => {
-            e.preventDefault();
-        });
-    });
-
-}) ();
-
-(function() {
+(async function() {
 
     const getPokemonFromName = document.querySelector('#getPokemonFromName');
     const name = document.querySelector("#name");
