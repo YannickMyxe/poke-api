@@ -64,29 +64,3 @@ import * as pokeStats from './modules/stats.js';
         }
     });
 }) ();
-
-(function() {
-
-    const findMatchingPokemon = document.querySelector('#findMatchingPokemon');
-    const name = document.querySelector("#find-name");
-    const result = document.querySelector("#find-result");
-    if (findMatchingPokemon === null) return;
-    findMatchingPokemon.addEventListener('click', async () => {
-        try {
-            const pokeName = name.value.toLowerCase();
-            if (pokeName === undefined || pokeName === null || pokeName === "") {
-                console.warn(`Field is empty! ['${pokeName}']`);
-                throw new Error(`The search-term cannot be empty, expecting a valid number / name`);
-            }
-            result.innerHTML = ""; // Clear the results
-            const matchingResults = await pokeFetch.tryPokemon(pokeName);
-            matchingResults.forEach(pokemon => {
-                result.innerHTML += `<p>Name: ${pokemon.name}</p>`
-            })          
-        }
-        catch(err) {
-            console.error(`Cannot get pokemon: ${err.message}`);
-            result.innerHTML = `<p class="error">${err.message}</p>`;
-        }
-    });
-}) ();
