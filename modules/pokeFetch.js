@@ -4,8 +4,7 @@ export const maxPokemonIndex = 898;
 const pokeFetch = async function(url) {
     try {
         const fullURL = `https://pokeapi.co/api/v2/${url}`
-        const res = await fetch(`${fullURL}`)
-        //if (!res.status.ok) throw new Error(`Fetch failed! Cannot fetch url: ${fullURL}`);
+        const res = await fetch(`${fullURL}`);
         const data = await res.json();
         return data;
     }
@@ -70,6 +69,22 @@ export const getFullList = async function() {
         return list;
     }
     catch(err) {
-        console.error(`Cannot build full list`);
+        console.error(`Cannot build full list ${err.message}`);
     }
+};
+
+export const tryPokemon = async function(name) {
+    const fullList = await getFullList();
+    const matchingResults = [];
+    fullList.results.forEach(element => {
+        if (element.name.includes(name)) {
+            matchingResults.push(element);        
+        }
+    });
+    if (matchingResults.length >= 1)
+    {
+        return matchingResults;
+    }
+    throw new Error(`No matches found for ${name}`);
+    
 };

@@ -27,9 +27,28 @@ import * as pokeStats from './modules/stats.js';
                 console.warn(`Field is empty! ['${pokeName}']`);
                 throw new Error(`The search-term cannot be empty, expecting a valid number / name`);
             }
-            const pokemon   = await pokeFetch.getByName(pokeName);
+            const pokemon = await pokeFetch.getByName(pokeName);
             // To stop the rest from running if the user tries to find a non-existing pokemon
-            if (pokemon === undefined) throw new Error(`Cannot find pokemon [${pokeName}]`);
+            if (pokemon === undefined) {
+                result.innerHTML = `<p class="error">Did you mean?</p><ul id="try-list">`; // Clear the results
+                const matchingResults = await pokeFetch.tryPokemon(pokeName);
+                matchingResults.forEach(pokemon => {
+                    result.innerHTML += `<li class="guess"><button class="try-fetch" name="${pokemon.name}">${pokemon.name}</button></li>`
+                })
+                result.innerHTML += `</ul>`
+
+                const fetchList = document.querySelectorAll('.try-fetch');
+                fetchList.forEach(item => {
+                    item.addEventListener('click', () => {
+                        name.value = `${item.name}`;
+                        getPokemonFromName.click();
+                    })
+                })
+        
+                
+                //throw new Error(`Cannot find pokemon [${pokeName}]`);
+                return;
+            }
             const types     = await pokeTypes.getTypesAsHtml(pokeName);
             const sprites   = await getSprites.getSpriteAsHtml(pokeName);
             const art       = await getSprites.getOfficialArtAsImages(pokeName);
@@ -41,7 +60,6 @@ import * as pokeStats from './modules/stats.js';
         }
         catch(err) {
             console.error(`Cannot get pokemon: ${err.message}`);
-
             result.innerHTML = `<p class="error">${err.message}</p>`;
         }
     });
@@ -60,25 +78,11 @@ import * as pokeStats from './modules/stats.js';
                 console.warn(`Field is empty! ['${pokeName}']`);
                 throw new Error(`The search-term cannot be empty, expecting a valid number / name`);
             }
-            const fullList = await pokeFetch.getFullList();
-            const matchingResults = [];
-            fullList.results.forEach(element => {
-                if (element.name.includes(pokeName)) {
-                    matchingResults.push(element);        
-                }
-            });
             result.innerHTML = ""; // Clear the results
-            if (matchingResults.length >= 1) {
-                matchingResults.forEach(pokemon => {
-                    result.innerHTML += `<p>Name: ${pokemon.name}</p>`
-                })
-            } else {
-                const message = `Did not find any matches~! for ${pokeName}`;
-                console.log(`${message}`);
-                throw new Error(`${message}`);
-            }
-
-            
+            const matchingResults = await pokeFetch.tryPokemon(pokeName);
+            matchingResults.forEach(pokemon => {
+                result.innerHTML += `<p>Name: ${pokemon.name}</p>`
+            })          
         }
         catch(err) {
             console.error(`Cannot get pokemon: ${err.message}`);
