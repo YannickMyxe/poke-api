@@ -41,6 +41,7 @@ header li:not(:last-child) {
 header a {
     text-decoration: none;
     color: var(--white);
+    padding-bottom: .25rem;
 }
 
 header li:hover {
