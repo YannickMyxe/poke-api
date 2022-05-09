@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokefetch</title>
+    <title>Pokefetch | Types</title>
 
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     
@@ -14,31 +14,30 @@
 
     <link rel="shortcut icon" href="#">
 
-    <link rel="stylesheet" href="./styles/main.css">
-    <link rel="stylesheet" href="./styles/types.css">
-    <link rel="stylesheet" href="./styles/stats.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/types.css">
+    <link rel="stylesheet" href="../styles/stats.css">
     
 
-    <script type="module" defer src="./index.js"></script>
-    <script type="module" defer src="./forms.js"></script>
+    <script type="module" defer src="../index.js"></script>
+    <script type="module" defer src="../forms.js"></script>
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="./" class="current">Home</a></li>
-                <li><a href="./types/">Types</a></li>
-
+                <li><a href="../">Home</a></li>
+                <li><a href="./" class="current">Types</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <h1>PokeFetch</h1>
         <form class="prevent-default" >
-            <h2>Find pokemon</h2>
+            <h2>Find Type</h2>
             <label for="name">Name: </label>
             <input type="text" name="name" id="name">
-            <button id="getPokemonFromName">Fetch results</button>
+            <button id="getTypeFromName">Fetch results</button>
             <div class="results" id="result"></div>
         </form>
     </main>
