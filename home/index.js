@@ -3,7 +3,7 @@ import * as getSprites from '../modules/getSprites.js';
 import * as pokeTypes from '../modules/types.js';
 import * as pokeStats from '../modules/stats.js';
 
-(async function() {
+(function() {
 
     const getPokemonFromName = document.querySelector('#getPokemonFromName');
     const name = document.querySelector("#name");
@@ -24,7 +24,7 @@ import * as pokeStats from '../modules/stats.js';
                 matchingResults.forEach(pokemon => {
                     result.innerHTML += `<li class="guess"><button class="try-fetch" name="${pokemon.name}">${pokemon.name}</button></li>`
                 })
-                result.innerHTML += `</ul>`
+                //result.innerHTML += `</ul>`
 
                 const fetchList = document.querySelectorAll('.try-fetch');
                 fetchList.forEach(item => {
@@ -38,7 +38,7 @@ import * as pokeStats from '../modules/stats.js';
                 //throw new Error(`Cannot find pokemon [${pokeName}]`);
                 return;
             }
-            const types     = await pokeTypes.getTypesAsHtml(pokeName);
+            const types     = await pokeTypes.getTypesFromPokemonAsHtml(pokeName);
             const sprites   = await getSprites.getSpriteAsHtml(pokeName);
             const art       = await getSprites.getOfficialArtAsImages(pokeName);
             const stats     = await pokeStats.getStatsOfPokemonAsHtml(pokeName);

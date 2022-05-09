@@ -90,6 +90,10 @@
     min-width: fit-content;
 }
 
+.typeMultiplier {
+    font-size: 120%;
+}
+
 @media (min-width: 45rem) {
     .type {
         max-width: 50%;

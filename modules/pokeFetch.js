@@ -1,7 +1,7 @@
 
 export const maxPokemonIndex = 898; 
 
-const pokeFetch = async function(url) {
+export const pokeFetch = async function(url) {
     try {
         const fullURL = `https://pokeapi.co/api/v2/${url}`
         const res = await fetch(`${fullURL}`);

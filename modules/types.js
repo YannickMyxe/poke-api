@@ -11,7 +11,25 @@ export const getTypeRefrence = async function(searchTerm) {
     }
 };
 
-export const getTypesAsHtml = async function(searchTerm) {
+export const getType = async function(typename) {
+    const res = await pokeFetch.pokeFetch(`type/${typename}`)
+    if (res === undefined) throw new Error(`Cannot get type of [${typename}]`);
+    return res;
+};
+
+export const getTypeHtml = async function(type) {
+    try {
+        const gType = await getType(type);
+        let typeHtml = `<p class="type ${gType.name}">${gType.name}</p>`;
+        console.info(typeHtml)
+        return typeHtml;
+    }
+    catch(err) {
+        console.error(`Cannot convert to type ${type} => ${err}`);
+    }
+};
+
+export const getTypesFromPokemonAsHtml = async function(searchTerm) {
     try {
         const simplifiedTypes = await pokeFetch.getSimplifiedTypes(searchTerm);
         let types = `<div class="type-box">`;

@@ -1,5 +1,5 @@
 :root {
-    --font-size: 1em;
+    --font-size: 1.45em;
     --title-size: 5em;
 
     --black: #0e0e0e;
@@ -20,7 +20,7 @@ header {
     background-color: var(--black);
     color: var(--white);
     margin: 0;
-    font-size: calc(var(--font-size) * 1.25);
+    font-size: calc(var(--font-size) * 1.05);
 }
 
 header ul {
@@ -75,6 +75,7 @@ h2 {
 
 p {
     font-size: var(--font-size);
+    margin: 0.25rem;
 }
 
 /*
@@ -92,9 +93,9 @@ form {
 
 input {
     display: inline;
-    padding: 0.42rem;
+    padding: 0.62rem 0.84rem;
     border-radius: var(--border-radius);
-    margin: 0.25rem 0 2rem;
+    margin: 0.42rem 0 2rem;
     width: 100%;
 
     border: 2px solid var(--black);
@@ -110,6 +111,7 @@ button {
     background-color: var(--black);
     border: 2px solid var(--grey);
 
+    margin: 0rem 0rem 2rem 0rem;
     color: var(--white);
 }
 

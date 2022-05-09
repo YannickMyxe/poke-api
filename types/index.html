@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/types.css">
     <link rel="stylesheet" href="../styles/stats.css">
+    <link rel="stylesheet" href="./index.css">
     
 
     <script type="module" defer src="./index.js"></script>
@@ -34,12 +35,20 @@
     <main>
         <h1>PokeFetch</h1>
         <form class="prevent-default" >
-            <h2>Find Type</h2>
+            <h2>Get Type info</h2>
+            <label for="name">Typename: </label>
+            <input type="text" name="name" id="type-name">
+            <button id="getTypeInfo">Fetch results</button>
+            <div class="results" id="type-result"></div>
+        </form>
+        <form class="prevent-default" >
+            <h2>Get Types of pokemon</h2>
             <label for="name">Name: </label>
             <input type="text" name="name" id="name">
-            <button id="getTypeFromName">Fetch results</button>
+            <button id="getTypesFromPokemon">Fetch results</button>
             <div class="results" id="result"></div>
         </form>
+
     </main>
 </body>
 </html>
