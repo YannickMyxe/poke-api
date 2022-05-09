@@ -64,7 +64,8 @@ export const getListWithLimit = async function(limit, offset = 0) {
 
 export const getFullList = async function() {
     try {
-        const list = await getListWithLimit(10000);
+        // Using this instead of 10000 doesn't give us the special forms we dont want
+        const list = await getListWithLimit(maxPokemonIndex);
         return list;
     }
     catch(err) {
