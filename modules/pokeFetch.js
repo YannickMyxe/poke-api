@@ -50,3 +50,24 @@ export const getSimplifiedTypes = async function(searchTerm) {
 export const getTypeInfo = async function(searchTerm) {
     return await pokeFetch(`type/${searchTerm}`);
 };
+
+
+export const getListWithLimit = async function(limit, offset = 0) {
+    try {
+        const list = await pokeFetch(`pokemon?limit=${limit}&offset=${offset}`);
+        return list;
+    }
+    catch(err) {
+        console.error(`Cannot get list[ ${limit}, ${offset} ]`);
+    }
+}
+
+export const getFullList = async function() {
+    try {
+        const list = await getListWithLimit(10000);
+        return list;
+    }
+    catch(err) {
+        console.error(`Cannot build full list`);
+    }
+};
