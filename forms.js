@@ -19,7 +19,7 @@ import * as pokeStats from './modules/stats.js';
     const getPokemonFromName = document.querySelector('#getPokemonFromName');
     const name = document.querySelector("#name");
     const result = document.querySelector("#result");
-
+    if (getPokemonFromName === null) return;
     getPokemonFromName.addEventListener('click', async () => {
         try { 
             const pokeName = name.value.toLowerCase();
@@ -40,9 +40,9 @@ import * as pokeStats from './modules/stats.js';
             result.innerHTML += `${stats}`
         }
         catch(err) {
-            console.error(`Cannot get pokemon: ${err}`);
+            console.error(`Cannot get pokemon: ${err.message}`);
 
-            result.innerHTML = `<p class="error">Cannot get pokemon: '${name.value}'</p><p class="error">${err}</p>`;
+            result.innerHTML = `<p class="error">${err.message}</p>`;
         }
     });
 }) ();
@@ -52,7 +52,7 @@ import * as pokeStats from './modules/stats.js';
     const findMatchingPokemon = document.querySelector('#findMatchingPokemon');
     const name = document.querySelector("#find-name");
     const result = document.querySelector("#find-result");
-
+    if (findMatchingPokemon === null) return;
     findMatchingPokemon.addEventListener('click', async () => {
         try {
             const pokeName = name.value.toLowerCase();
@@ -60,21 +60,29 @@ import * as pokeStats from './modules/stats.js';
                 console.warn(`Field is empty! ['${pokeName}']`);
                 throw new Error(`The search-term cannot be empty, expecting a valid number / name`);
             }
-            const pokemon   = await pokeFetch.getByName(pokeName);
-            // To stop the rest from running if the user tries to find a non-existing pokemon
-            if (pokemon === undefined) throw new Error(`Cannot find pokemon [${pokeName}]`);
-            /*
-            const types     = await pokeTypes.getTypesAsHtml(pokeName);
-            const sprites   = await getSprites.getSpriteAsHtml(pokeName);
-            const art       = await getSprites.getOfficialArtAsImages(pokeName);
-            const stats     = await pokeStats.getStatsOfPokemonAsHtml(pokeName);
-            */
+            const fullList = await pokeFetch.getFullList();
+            const matchingResults = [];
+            fullList.results.forEach(element => {
+                if (element.name.includes(pokeName)) {
+                    matchingResults.push(element);        
+                }
+            });
+            result.innerHTML = ""; // Clear the results
+            if (matchingResults.length >= 1) {
+                matchingResults.forEach(pokemon => {
+                    result.innerHTML += `<p>Name: ${pokemon.name}</p>`
+                })
+            } else {
+                const message = `Did not find any matches~! for ${pokeName}`;
+                console.log(`${message}`);
+                throw new Error(`${message}`);
+            }
 
-            result.innerHTML = `<p>Name: ${pokemon.name}</p><p>Dex-number: ${pokemon.id}</p>`;
+            
         }
         catch(err) {
-            console.error(`Cannot get pokemon: ${err}`);
-            result.innerHTML = `<p class="error">Cannot get pokemon: '${name.value}'</p><p class="error">${err}</p>`;
+            console.error(`Cannot get pokemon: ${err.message}`);
+            result.innerHTML = `<p class="error">${err.message}</p>`;
         }
     });
 }) ();

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,33 +15,30 @@
 
     <link rel="shortcut icon" href="#">
 
-    <link rel="stylesheet" href="./styles/main.css">
-    <link rel="stylesheet" href="./styles/types.css">
-    <link rel="stylesheet" href="./styles/stats.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/types.css">
+    <link rel="stylesheet" href="../styles/stats.css">
     
 
-    <script type="module" defer src="./index.js"></script>
-    <script type="module" defer src="./forms.js"></script>
+    <script type="module" defer src="../index.js"></script>
+    <script type="module" defer src="../forms.js"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="./" class="current">Home</a></li>
-                <li><a href="./find/">Find</a></li>
-                <li><a href=""></a></li>
-            </ul>
-        </nav>
-    </header>
     <main>
         <h1>PokeFetch</h1>
         <form class="prevent-default" >
-            <h2>Get pokemon</h2>
+            <h2>Find matching pokemon</h2>
+            <section class="description" >
+                <p>Find pokemon given a piece of their name</p>
+                <p>For example: typing p, will give every pokemon with a p in its name.</p>
+            </section>
+
             <label for="name">Name: </label>
-            <input type="text" name="name" id="name">
-            <button id="getPokemonFromName">Fetch results</button>
-            <div class="results" id="result"></div>
+            <input type="text" name="name" id="find-name">
+            <button id="findMatchingPokemon">Find matching pokemon</button>
+            <div class="results" id="find-result"></div>
         </form>
     </main>
 </body>
 </html>
+

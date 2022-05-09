@@ -5,11 +5,12 @@ const pokeFetch = async function(url) {
     try {
         const fullURL = `https://pokeapi.co/api/v2/${url}`
         const res = await fetch(`${fullURL}`)
+        //if (!res.status.ok) throw new Error(`Fetch failed! Cannot fetch url: ${fullURL}`);
         const data = await res.json();
         return data;
     }
     catch(err) {
-        console.error(`Pokefetch failure: ${err}`);
+        console.error(`Pokefetch failure: ${err.message}`);
     }
 };
 
@@ -19,7 +20,7 @@ export const getByName = async function(name) {
         return pokemon;
     }
     catch(err) {
-        console.error(`Cannot get pokemon by name: [${name}] => ${err}`)
+        console.error(`Cannot get pokemon by name: [${name}] => ${err.message}`)
     }
 };
 
@@ -43,7 +44,7 @@ export const getSimplifiedTypes = async function(searchTerm) {
         return {list: types}
     }
     catch(err) {
-        console.error(`Cannot get type of [${searchTerm}] => ${err}`)
+        console.error(`Cannot get type of [${searchTerm}] => ${err.message}`)
     }
 };
 

@@ -66,7 +66,7 @@ export const getOfficialArtAsImages = async function(searchTerm) {
         const list = [];
         Object.keys(art).forEach(key => {
             if (art[key] !== null) {
-                list.push(`<img src='${art[key]}'>`);
+                list.push(`<img class="official-artwork" src='${art[key]}'>`);
             }
             else {
                 //console.warn(`Key[${key}] is empty`)

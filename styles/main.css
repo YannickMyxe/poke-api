@@ -1,15 +1,63 @@
 :root {
     --font-size: 1em;
     --title-size: 5em;
-}
 
+    --black: #0e0e0e;
+    --white: #fcfcfc;
+    --grey: #dddddd;
+
+    --border-radius: 0.85rem;
+}
 
 *, *::before, *::after {
     box-sizing: border-box;
     font-family: 'Raleway', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-body {
+/*Navbar*/
+
+header {
+    background-color: var(--black);
+    color: var(--white);
+    margin: 0;
+    font-size: calc(var(--font-size) * 1.25);
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
+
+header li:not(:last-child) {
+    padding: 1rem;
+    margin-right: 2rem;
+    border: 1px;
+}
+
+header a {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    color: var(--white);
+}
+
+header li:hover {
+    background-color: var(--white);
+}
+
+header li:hover a {
+    color: var(--black);
+}
+
+header .current {
+    border-bottom: 1px solid #22cfa2;
+}
+
+/*main*/
+
+main, nav {
     max-width: 87vw;
     margin: 0 auto;
 }
@@ -35,18 +83,53 @@ p {
 form {
     margin: 1rem;
     padding: 1rem 3rem;
-    background-color: #ededed;
-    border: 2px solid #0e0e0e;
-    border-radius: 1rem;
+    background-color: var(--grey);
+    border: 2px solid var(--black);
+    border-radius: var(--border-radius);
 
+}
+
+input {
+    display: inline;
+    padding: 0.42rem;
+    border-radius: var(--border-radius);
+    margin: 0.25rem 0 2rem;
+    width: 100%;
+
+    border: 2px solid var(--black);
+
+}
+input:hover {
+    border: 2px solid #22cfa2;
+}
+
+button {
+    padding: 0.8rem;
+    border-radius: var(--border-radius);
+    background-color: var(--black);
+    border: 2px solid var(--grey);
+
+    color: var(--white);
+}
+
+button:hover {
+    color: var(--black);
+    background-color: var(--white);
+
+    border: 2px solid var(--black);
 }
 
 .error {
     color: rgb(236, 61, 61);
-    text-shadow: #0e0e0e;
+    text-shadow: var(--black);
 }
 
 .art-box {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.official-artwork {
+    max-width: 100%;
 }

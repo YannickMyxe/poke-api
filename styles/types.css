@@ -76,6 +76,7 @@
 
 .type-box {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .type {
@@ -85,6 +86,12 @@
     text-align: center;
     border: 2px solid #0e0e0e;
     margin: 1rem 0rem;
-    max-width: 50%;
-    width: 80%;
+    width: 100%;
+    min-width: fit-content;
+}
+
+@media (min-width: 45rem) {
+    .type {
+        max-width: 50%;
+    }
 }

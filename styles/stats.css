@@ -15,6 +15,7 @@
     background-color: #0c0c0c42;
     display: flex;
     align-items: center;
+    max-width: 100%;
 }
 
 .inner-bar {
