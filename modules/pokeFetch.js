@@ -10,13 +10,13 @@ const pokeFetch = async function(url) {
     }
     catch(err) {
         console.error(`Pokefetch failure: ${err}`);
-        return err;
     }
 };
 
 export const getByName = async function(name) {
     try {
-        return await pokeFetch(`pokemon/${name}`);
+        const pokemon = await pokeFetch(`pokemon/${name}`);
+        return pokemon;
     }
     catch(err) {
         console.error(`Cannot get pokemon by name: [${name}] => ${err}`)

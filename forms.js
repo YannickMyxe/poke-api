@@ -38,7 +38,7 @@ import * as pokeStats from './modules/stats.js';
         }
         catch(err) {
             console.error(`Cannot get pokemon: ${err}`);
-            result.innerHTML = `<p class="error">Cannot get pokemon: ${name.value}</p><p class="error">${err}</p>`;
+            result.innerHTML = `<p class="error">Cannot get pokemon: '${name.value}'</p><p class="error">${err}</p>`;
         }
     });
 }) ();
